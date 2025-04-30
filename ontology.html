@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophical Worldview Quiz - MedEd Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="site-styles.css">
+    <link rel="stylesheet" href="ontology-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="site-container">
+        <!-- Standard Navigation Bar -->
+        <nav class="site-navbar">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>MedEd Tools</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tools">Tools</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#resources">Resources</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Tool-specific container -->
+        <div class="app-container">
+            <!-- Tool header with progress bar -->
+            <header class="app-header">
+                <h1>What's Your Philosophical Worldview?</h1>
+                <p>Discover your ontological and epistemological leanings in research. Don't worry if you're new to these concepts - each question comes with an explanation!</p>
+                
+                <div id="progress-container">
+                    <div id="progress-bar">
+                        <div id="progress-fill"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <div class="progress-step active" id="progress-intro">Start</div>
+                        <div class="progress-step" id="progress-question">Questions</div>
+                        <div class="progress-step" id="progress-results">Results</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main tool content -->
+            <main class="app-content">
+                <!-- Introduction Section -->
+                <section id="intro-screen" class="content-section active">
+                    <div class="section-content">
+                        <h2>Understanding Philosophical Worldviews in Research</h2>
+                        <p>This interactive quiz will help you identify your philosophical orientation when it comes to research and knowledge. Your answers will reveal how you view:</p>
+                        
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <h3><i class="fas fa-globe"></i> Ontology</h3>
+                                <p>Your beliefs about the nature of reality and what can be known about it.</p>
+                            </div>
+                            <div class="info-card">
+                                <h3><i class="fas fa-brain"></i> Epistemology</h3>
+                                <p>Your understanding of how knowledge is created and what counts as valid knowledge.</p>
+                            </div>
+                            <div class="info-card">
+                                <h3><i class="fas fa-microscope"></i> Methodology</h3>
+                                <p>Your preferences for how research should be conducted based on these beliefs.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <h3><i class="fas fa-info-circle"></i> Why does this matter?</h3>
+                            <p>Understanding your philosophical leanings helps you align your research questions, methods, and analysis in a coherent way. It can also help you recognise and appreciate different approaches to knowledge and research.</p>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="start-button" class="primary-button">Begin the Quiz <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Question Screen -->
+                <section id="question-screen" class="content-section">
+                    <div class="section-content">
+                        <h2 id="question-title">Question</h2>
+                        <p id="question-text"></p>
+                        
+                        <div class="options-container">
+                            <!-- Options will be inserted here by JavaScript -->
+                        </div>
+                        
+                        <div class="explanation-box">
+                            <h3><i class="fas fa-lightbulb"></i> What does this question explore?</h3>
+                            <p id="question-explanation"></p>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="prev-button" class="secondary-button"><i class="fas fa-arrow-left"></i> Previous</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Screen -->
+                <section id="results-screen" class="content-section">
+                    <div class="section-content">
+                        <h2>Your Philosophical Worldview</h2>
+                        
+                        <div class="result-card">
+                            <h3 id="result-title"></h3>
+                            <p id="result-description"></p>
+                        </div>
+                        
+                        <div class="result-spectrum">
+                            <h3>Philosophical Spectrum</h3>
+                            <div class="spectrum-container">
+                                <div class="spectrum-point" id="point-positivist">
+                                    <div class="point-marker"></div>
+                                    <span>Positivist</span>
+                                </div>
+                                <div class="spectrum-point" id="point-postpositivist">
+                                    <div class="point-marker"></div>
+                                    <span>Post-Positivist</span>
+                                </div>
+                                <div class="spectrum-point" id="point-interpretivist">
+                                    <div class="point-marker"></div>
+                                    <span>Interpretivist</span>
+                                </div>
+                                <div class="spectrum-point" id="point-critical">
+                                    <div class="point-marker"></div>
+                                    <span>Critical Theory</span>
+                                </div>
+                            </div>
+                            <div class="spectrum-line">
+                                <div id="user-position" class="user-position-marker"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h3><i class="fas fa-book"></i> Philosophical Traditions</h3>
+                            <div class="accordion" id="philosophy-accordion">
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Positivism <i class="fas fa-chevron-down"></i></h4>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Positivism sees reality as objective and observable. It values scientific methods, measurable evidence, and seeks to discover universal laws. Knowledge is considered value-free and based on empirical verification.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Post-Positivism <i class="fas fa-chevron-down"></i></h4>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Post-positivism maintains belief in objective reality but acknowledges that our understanding is always imperfect. It emphasises probability rather than certainty and recognises that researcher values influence inquiry, though objectivity remains an ideal.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Interpretivism/Constructionism <i class="fas fa-chevron-down"></i></h4>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Interpretivism sees reality as socially constructed through meaning-making and interpretation. It values understanding multiple perspectives, contextual factors, and how people make sense of their experiences.</p>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Critical Theory <i class="fas fa-chevron-down"></i></h4>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Critical theory examines how power, privilege, and historical contexts shape knowledge and social structures. It aims not just to understand society but to critique and transform it, with research often oriented toward emancipation and social justice.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="resources-button" class="secondary-button">Explore Resources <i class="fas fa-book"></i></button>
+                            <button id="retake-button" class="primary-button">Retake Quiz <i class="fas fa-redo"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Resources Section -->
+                <section id="resources-screen" class="content-section">
+                    <div class="section-content">
+                        <h2>Philosophical Worldviews Resources</h2>
+                        
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <h3>Research Paradigms</h3>
+                                <p>Learn more about the major research paradigms and their applications.</p>
+                                <a href="#" class="resource-link">View Resource <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            <div class="resource-card">
+                                <h3>Ontology & Epistemology</h3>
+                                <p>Explore the relationship between beliefs about reality and knowledge.</p>
+                                <a href="#" class="resource-link">View Resource <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            <div class="resource-card">
+                                <h3>Research Methodology</h3>
+                                <p>Discover how philosophical positions inform research methods.</p>
+                                <a href="#" class="resource-link">View Resource <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                            <div class="resource-card">
+                                <h3>Mixed Methods Approaches</h3>
+                                <p>Understand how different worldviews can be integrated in research.</p>
+                                <a href="#" class="resource-link">View Resource <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="back-to-results-button" class="secondary-button"><i class="fas fa-arrow-left"></i> Back to Results</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Standard Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MedEd Tools</h3>
+                    <p>Supporting medical education through practical, evidence-based resources.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#tools">Tools</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Our Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="research.html">Research Planner</a></li>
+                        <li><a href="assessment-designer.html">Assessment Designer</a></li>
+                        <li><a href="ontology.html">Philosophical Worldview Quiz</a></li>
+                        <li><a href="#">Learning Theory Explorer (Coming Soon)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section" id="contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> mededtools@example.org</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedEd Tools. Created by medical educators for medical educators.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Script imports -->
+    <script src="site-script.js"></script>
+    <script src="ontology-script.js"></script>
+</body>
+</html>

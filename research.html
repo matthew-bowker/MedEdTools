@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEd Research Planner - Medical Education Research Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="site-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="site-container">
+        <!-- Navigation Bar -->
+        <nav class="site-navbar">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>MedEd Tools</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tools">Tools</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#resources">Resources</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Medical Education Research Planner</h1>
+            <p>An interactive tool to guide your research planning process</p>
+            <div id="progress-container">
+                <div id="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-icon"><i class="fas fa-question"></i></div>
+                        <div class="step-label">Research Question</div>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-icon"><i class="fas fa-brain"></i></div>
+                        <div class="step-label">Philosophy</div>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-icon"><i class="fas fa-compass"></i></div>
+                        <div class="step-label">Methodology</div>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-icon"><i class="fas fa-tools"></i></div>
+                        <div class="step-label">Methods</div>
+                    </div>
+                    <div class="progress-step" data-step="5">
+                        <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="step-label">Planning</div>
+                    </div>
+                    <div class="progress-step" data-step="6">
+                        <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="step-label">Final Plan</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-content">
+            <!-- Welcome Screen -->
+            <section id="welcome-screen" class="content-section active">
+                <div class="section-content">
+                    <h2>Welcome to the Medical Education Research Planner</h2>
+                    <p>This interactive tool will guide you through the process of planning your medical education research project. By the end, you'll have a comprehensive research plan tailored to your specific interests and context.</p>
+                    
+                    <div class="info-box">
+                        <h3><i class="fas fa-info-circle"></i> How to use this tool</h3>
+                        <p>You will progress through a series of questions about your research interests, philosophical approach, methodology, and methods. Based on your responses, the tool will suggest appropriate research approaches and provide relevant examples from the literature.</p>
+                        <p>At the end, you'll receive a downloadable research plan that you can use as a foundation for your project.</p>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button id="start-button" class="primary-button">Begin Your Research Plan <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: Research Question Development -->
+            <section id="section-1" class="content-section">
+                <div class="section-content">
+                    <h2>Research Question Development</h2>
+                    <p>Let's start by clarifying your research interests and goals.</p>
+
+                    <div class="question-container" id="initial-interest">
+                        <h3>Initial Interest</h3>
+                        <p>What is your primary interest in conducting this research?</p>
+                        <div class="options-container">
+                            <div class="option-card" data-value="experiences">
+                                <div class="option-icon"><i class="fas fa-user-friends"></i></div>
+                                <h4>Understanding experiences or perspectives</h4>
+                                <p>Exploring how individuals perceive or experience phenomena in medical education</p>
+                            </div>
+                            <div class="option-card" data-value="processes">
+                                <div class="option-icon"><i class="fas fa-project-diagram"></i></div>
+                                <h4>Exploring social processes or relationships</h4>
+                                <p>Examining how people interact or how systems function in educational contexts</p>
+                            </div>
+                            <div class="option-card" data-value="effectiveness">
+                                <div class="option-icon"><i class="fas fa-chart-line"></i></div>
+                                <h4>Testing effectiveness or comparing approaches</h4>
+                                <p>Evaluating whether educational interventions achieve their intended outcomes</p>
+                            </div>
+                            <div class="option-card" data-value="assessment">
+                                <div class="option-icon"><i class="fas fa-tasks"></i></div>
+                                <h4>Developing or validating assessment tools</h4>
+                                <p>Creating reliable measures to evaluate performance or understanding</p>
+                            </div>
+                            <div class="option-card" data-value="patterns">
+                                <div class="option-icon"><i class="fas fa-search"></i></div>
+                                <h4>Examining patterns or associations</h4>
+                                <p>Identifying relationships between variables or factors in educational contexts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="question-refinement">
+                        <h3>Question Refinement</h3>
+                        <p>Which best describes your research aim?</p>
+                        <div class="options-container">
+                            <div class="option-card" data-value="describing">
+                                <div class="option-icon"><i class="fas fa-eye"></i></div>
+                                <h4>Describing</h4>
+                                <p>What is happening in a particular educational context</p>
+                            </div>
+                            <div class="option-card" data-value="explaining">
+                                <div class="option-icon"><i class="fas fa-question-circle"></i></div>
+                                <h4>Explaining</h4>
+                                <p>Why or how particular educational phenomena occur</p>
+                            </div>
+                            <div class="option-card" data-value="evaluating">
+                                <div class="option-icon"><i class="fas fa-balance-scale"></i></div>
+                                <h4>Evaluating</h4>
+                                <p>How well an educational approach or intervention works</p>
+                            </div>
+                            <div class="option-card" data-value="predicting">
+                                <div class="option-icon"><i class="fas fa-crystal-ball"></i></div>
+                                <h4>Predicting</h4>
+                                <p>What might happen if certain conditions or interventions are introduced</p>
+                            </div>
+                            <div class="option-card" data-value="changing">
+                                <div class="option-icon"><i class="fas fa-edit"></i></div>
+                                <h4>Changing</h4>
+                                <p>How to improve educational practices or outcomes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="context-question">
+                        <h3>Research Context</h3>
+                        <p>In what context will your research take place?</p>
+                        <div class="options-container">
+                            <div class="option-card" data-value="undergraduate">
+                                <div class="option-icon"><i class="fas fa-user-graduate"></i></div>
+                                <h4>Undergraduate medical education</h4>
+                                <p>Research involving medical students during their initial training</p>
+                            </div>
+                            <div class="option-card" data-value="postgraduate">
+                                <div class="option-icon"><i class="fas fa-stethoscope"></i></div>
+                                <h4>Postgraduate medical education/residency</h4>
+                                <p>Research involving doctors during specialty training</p>
+                            </div>
+                            <div class="option-card" data-value="cpd">
+                                <div class="option-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <h4>Continuing professional development</h4>
+                                <p>Research involving practicing clinicians' ongoing education</p>
+                            </div>
+                            <div class="option-card" data-value="interprofessional">
+                                <div class="option-icon"><i class="fas fa-users"></i></div>
+                                <h4>Interprofessional education</h4>
+                                <p>Research involving multiple healthcare disciplines learning together</p>
+                            </div>
+                            <div class="option-card" data-value="clinical">
+                                <div class="option-icon"><i class="fas fa-hospital"></i></div>
+                                <h4>Clinical teaching environments</h4>
+                                <p>Research set in patient care settings where teaching occurs</p>
+                            </div>
+                            <div class="option-card" data-value="other-context">
+                                <div class="option-icon"><i class="fas fa-plus-circle"></i></div>
+                                <h4>Other</h4>
+                                <p>A different educational context not listed above</p>
+                                <input type="text" placeholder="Please specify" class="option-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="knowledge-gap">
+                        <h3>Knowledge Gap</h3>
+                        <p>How would you characterise the existing knowledge in your area of interest?</p>
+                        <div class="options-container">
+                            <div class="option-card" data-value="limited">
+                                <div class="option-icon"><i class="fas fa-file-alt"></i></div>
+                                <h4>Limited research exists on this topic</h4>
+                                <p>Few studies have addressed this specific area</p>
+                            </div>
+                            <div class="option-card" data-value="theoretical">
+                                <div class="option-icon"><i class="fas fa-sitemap"></i></div>
+                                <h4>Existing research lacks theoretical framework</h4>
+                                <p>Studies exist but without strong conceptual foundations</p>
+                            </div>
+                            <div class="option-card" data-value="contradictory">
+                                <div class="option-icon"><i class="fas fa-random"></i></div>
+                                <h4>Contradictory findings exist</h4>
+                                <p>Different studies have yielded inconsistent results</p>
+                            </div>
+                            <div class="option-card" data-value="contextual">
+                                <div class="option-icon"><i class="fas fa-map-pin"></i></div>
+                                <h4>Existing research lacks contextual relevance</h4>
+                                <p>Studies exist but may not apply to your specific setting</p>
+                            </div>
+                            <div class="option-card" data-value="poorly-understood">
+                                <div class="option-icon"><i class="fas fa-puzzle-piece"></i></div>
+                                <h4>The phenomenon is recognised but poorly understood</h4>
+                                <p>The topic is acknowledged but mechanisms remain unclear</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-question-builder">
+                        <h3>Research Question Builder</h3>
+                        <p>Based on your selections, here are some example question formats that might help you craft your specific research question:</p>
+                        <div id="example-questions" class="example-questions">
+                            <!-- Example questions will be inserted here dynamically -->
+                        </div>
+                        <div class="question-input">
+                            <label for="research-question">Your Research Question:</label>
+                            <textarea id="research-question" placeholder="Draft your research question here..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="secondary-button prev-button"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="primary-button next-button">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Philosophical Foundations -->
+            <section id="section-2" class="content-section">
+                <div class="section-content">
+                    <h2>Philosophical Foundations</h2>
+                    <p>Every research approach is based on philosophical assumptions about the nature of reality (ontology) and how knowledge can be gained (epistemology).</p>
+
+                    <div class="info-box">
+                        <h3><i class="fas fa-info-circle"></i> Why This Matters</h3>
+                        <p>Understanding your philosophical stance ensures alignment between your research question, methodology, and methods. It helps you make consistent decisions throughout your research process and articulate your approach to others.</p>
+                    </div>
+
+                    <div class="question-container" id="ontology-question">
+                        <h3>Ontology: Views on Reality</h3>
+                        <p>Which statement best reflects your view about the nature of reality in your research context?</p>
+                        <div class="options-container">
+                            <div class="option-card" data-value="realism">
+                                <div class="option-icon"><i class="fas fa-cube"></i></div>
+                                <h4>Realism</h4>
+                                <p>There is a single objective reality that can be measured and understood through careful study</p>
+                            </div>
+                            <div class="option-card" data-value="critical-realism">
+                                <div class="option-icon"><i class="fas fa-cubes"></i></div>
+                                <h4>Critical Realism</h4>
+                                <p>Reality exists but can only be imperfectly understood due to human limitations</p>
+                            </div>
+                            <div class="option-card" data-value="relativism">
+                                <div class="option-icon"><i class="fas fa-users-cog"></i></div>
+                                <h4>Relativism</h4>
+                                <p>Reality is constructed through human interactions and varies across individuals and contexts</p>
+                            </div>
+                            <div class="option-card" data-value="historical-realism">
+                                <div class="option-icon"><i class="fas fa-balance-scale-right"></i></div>
+                                <h4>Historical Realism</h4>
+                                <p>Reality is shaped by social, political, and cultural forces that create power structures</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="epistemology-question">
+                        <h3>Epistemology: How Knowledge is Gained</h3>
+                        <p>How do you believe knowledge can best be gained in your research area?</p>
+                        <div class="options-container">
+                            <div class="option-card" data-value="objectivism">
+                                <div class="option-icon"><i class="fas fa-microscope"></i></div>
+                                <h4>Objectivism</h4>
+                                <p>Through objective measurement and observation, minimising researcher influence</p>
+                            </div>
+                            <div class="option-card" data-value="post-positivism">
+                                <div class="option-icon"><i class="fas fa-search"></i></div>
+                                <h4>Post-positivism</h4>
+                                <p>Through systematic observation while acknowledging some researcher influence</p>
+                            </div>
+                            <div class="option-card" data-value="constructivism">
+                                <div class="option-icon"><i class="fas fa-comments"></i></div>
+                                <h4>Constructivism</h4>
+                                <p>Through interaction and co-construction of meaning between researcher and participants</p>
+                            </div>
+                            <div class="option-card" data-value="critical">
+                                <div class="option-icon"><i class="fas fa-bullhorn"></i></div>
+                                <h4>Critical/Transformative</h4>
+                                <p>Through critical examination of power structures and advocating for change</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="paradigm-result" id="paradigm-result">
+                        <h3>Your Research Paradigm</h3>
+                        <div class="result-container">
+                            <div class="paradigm-icon">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <div class="paradigm-details">
+                                <h4 id="paradigm-name">Loading...</h4>
+                                <div class="paradigm-components">
+                                    <p><strong>Ontology:</strong> <span id="ontology-result">Not yet selected</span></p>
+                                    <p><strong>Epistemology:</strong> <span id="epistemology-result">Not yet selected</span></p>
+                                </div>
+                                <div class="paradigm-description" id="paradigm-description">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="example-papers">
+                            <h4>Example Paper:</h4>
+                            <div id="paradigm-example" class="paper-example">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="secondary-button prev-button"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="primary-button next-button">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Methodology Selection -->
+            <section id="section-3" class="content-section">
+                <div class="section-content">
+                    <h2>Methodology Selection</h2>
+                    <p>Based on your philosophical foundation (<span id="current-paradigm">paradigm</span>), let's identify an appropriate methodology for your research.</p>
+
+                    <!-- Post-positivist Methodologies -->
+                    <div class="methodology-group" id="post-positivist-methodologies">
+                        <h3>Methodologies Aligned with Post-positivism</h3>
+                        <p>What is your primary research objective?</p>
+                        <div class="options-container radio-select">
+                            <div class="option-card" data-value="experimental">
+                                <div class="option-icon"><i class="fas fa-flask"></i></div>
+                                <h4>Experimental</h4>
+                                <p>Testing effectiveness or comparing approaches through controlled conditions</p>
+                            </div>
+                            <div class="option-card" data-value="correlational">
+                                <div class="option-icon"><i class="fas fa-chart-line"></i></div>
+                                <h4>Correlational</h4>
+                                <p>Identifying relationships between variables without manipulation</p>
+                            </div>
+                            <div class="option-card" data-value="psychometric">
+                                <div class="option-icon"><i class="fas fa-clipboard-check"></i></div>
+                                <h4>Psychometric</h4>
+                                <p>Developing or validating assessment tools</p>
+                            </div>
+                            <div class="option-card" data-value="epidemiological">
+                                <div class="option-icon"><i class="fas fa-chart-pie"></i></div>
+                                <h4>Epidemiological</h4>
+                                <p>Exploring patterns or risk factors in existing data</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Constructivist Methodologies -->
+                    <div class="methodology-group" id="constructivist-methodologies">
+                        <h3>Methodologies Aligned with Constructivism</h3>
+                        <p>What aspect of human experience are you most interested in exploring?</p>
+                        <div class="options-container radio-select">
+                            <div class="option-card" data-value="ethnography">
+                                <div class="option-icon"><i class="fas fa-glasses"></i></div>
+                                <h4>Ethnography</h4>
+                                <p>Studying cultural and social contexts through immersion</p>
+                            </div>
+                            <div class="option-card" data-value="grounded-theory">
+                                <div class="option-icon"><i class="fas fa-sitemap"></i></div>
+                                <h4>Grounded Theory</h4>
+                                <p>Developing theory from data through iterative process</p>
+                            </div>
+                            <div class="option-card" data-value="case-study">
+                                <div class="option-icon"><i class="fas fa-search-plus"></i></div>
+                                <h4>Case Study</h4>
+                                <p>In-depth exploration of a bounded system</p>
+                            </div>
+                            <div class="option-card" data-value="phenomenology">
+                                <div class="option-icon"><i class="fas fa-brain"></i></div>
+                                <h4>Phenomenology</h4>
+                                <p>Understanding lived experiences of a phenomenon</p>
+                            </div>
+                            <div class="option-card" data-value="narrative">
+                                <div class="option-icon"><i class="fas fa-book-open"></i></div>
+                                <h4>Narrative Inquiry</h4>
+                                <p>Exploring individual experiences through storytelling</p>
+                            </div>
+                            <div class="option-card" data-value="discourse">
+                                <div class="option-icon"><i class="fas fa-comments"></i></div>
+                                <h4>Discourse Analysis</h4>
+                                <p>Analysing language use and its effects</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Critical Inquiry Methodologies -->
+                    <div class="methodology-group" id="critical-methodologies">
+                        <h3>Methodologies Aligned with Critical Inquiry</h3>
+                        <p>What is your primary critical aim?</p>
+                        <div class="options-container radio-select">
+                            <div class="option-card" data-value="action">
+                                <div class="option-icon"><i class="fas fa-sync-alt"></i></div>
+                                <h4>Action Research</h4>
+                                <p>Changing social practices through participant involvement</p>
+                            </div>
+                            <div class="option-card" data-value="critical-discourse">
+                                <div class="option-icon"><i class="fas fa-bullhorn"></i></div>
+                                <h4>Critical Discourse Analysis</h4>
+                                <p>Examining power dynamics through language analysis</p>
+                            </div>
+                            <div class="option-card" data-value="institutional">
+                                <div class="option-icon"><i class="fas fa-university"></i></div>
+                                <h4>Institutional Ethnography</h4>
+                                <p>Understanding institutional practices and their effects</p>
+                            </div>
+                            <div class="option-card" data-value="participatory">
+                                <div class="option-icon"><i class="fas fa-hands-helping"></i></div>
+                                <h4>Participatory Research</h4>
+                                <p>Addressing inequities through collaborative research</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="methodology-result" id="methodology-result">
+                        <h3>Selected Methodology</h3>
+                        <div class="result-container">
+                            <div class="methodology-icon" id="methodology-icon">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div class="methodology-details">
+                                <h4 id="methodology-name">Not yet selected</h4>
+                                <div class="methodology-description" id="methodology-description">
+                                    <!-- Will be populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="example-papers">
+                            <h4>Example Paper:</h4>
+                            <div id="methodology-example" class="paper-example">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="secondary-button prev-button"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="primary-button next-button">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Methods Selection -->
+            <section id="section-4" class="content-section">
+                <div class="section-content">
+                    <h2>Methods Selection</h2>
+                    <p>Now that you've selected <span id="current-methodology">your methodology</span>, let's choose appropriate methods for data collection, sampling, and analysis.</p>
+
+                    <div class="question-container" id="data-collection">
+                        <h3>Data Collection Methods</h3>
+                        <p>Based on your methodology, which data collection methods would be most appropriate? (Select all that apply)</p>
+                        
+                        <!-- Qualitative Methods -->
+                        <div class="methods-group" id="qualitative-methods">
+                            <h4>Qualitative Data Collection Methods</h4>
+                            <div class="options-container multi-select">
+                                <div class="option-card checkbox-card" data-value="interviews">
+                                    <div class="option-icon"><i class="fas fa-microphone"></i></div>
+                                    <h4>Interviews</h4>
+                                    <p>One-on-one conversations with participants</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Types</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li><strong>Structured:</strong> Fixed questions with little flexibility</li>
+                                                <li><strong>Semi-structured:</strong> Guide with flexibility for follow-up</li>
+                                                <li><strong>Unstructured:</strong> Conversational with broad topics</li>
+                                                <li><strong>In-situ:</strong> Conducted in the participant's environment</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="focus-groups">
+                                    <div class="option-icon"><i class="fas fa-users"></i></div>
+                                    <h4>Focus Groups</h4>
+                                    <p>Group discussions with multiple participants</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Considerations</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Group composition and size (typically 6-10 participants)</li>
+                                                <li>Group dynamics and power relationships</li>
+                                                <li>Moderator skill and approach</li>
+                                                <li>Not suitable for highly sensitive topics</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="observations">
+                                    <div class="option-icon"><i class="fas fa-eye"></i></div>
+                                    <h4>Observations</h4>
+                                    <p>Watching and documenting behaviors or practices</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Types</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li><strong>Participant:</strong> Observer is involved in activities</li>
+                                                <li><strong>Non-participant:</strong> Observer watches without participating</li>
+                                                <li><strong>Structured:</strong> Using predefined categories</li>
+                                                <li><strong>Unstructured:</strong> Open field notes without categories</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="documents">
+                                    <div class="option-icon"><i class="fas fa-file-alt"></i></div>
+                                    <h4>Documents/Texts</h4>
+                                    <p>Analysis of existing written materials</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Examples</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Policy documents and curricula</li>
+                                                <li>Assessment forms and feedback</li>
+                                                <li>Reflective writings by students/practitioners</li>
+                                                <li>Institutional records and communications</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="visual">
+                                    <div class="option-icon"><i class="fas fa-camera"></i></div>
+                                    <h4>Visual Methods</h4>
+                                    <p>Using images or video to collect data</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Approaches</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Participant-generated images or videos</li>
+                                                <li>Photo-elicitation interviews</li>
+                                                <li>Video recording of practices or interactions</li>
+                                                <li>Visual mapping of processes or experiences</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantitative Methods -->
+                        <div class="methods-group" id="quantitative-methods">
+                            <h4>Quantitative Data Collection Methods</h4>
+                            <div class="options-container multi-select">
+                                <div class="option-card checkbox-card" data-value="surveys">
+                                    <div class="option-icon"><i class="fas fa-poll"></i></div>
+                                    <h4>Surveys/Questionnaires</h4>
+                                    <p>Standardised collection of self-reported data</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Considerations</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Using validated instruments when available</li>
+                                                <li>Response scale types (Likert, VAS, etc.)</li>
+                                                <li>Online vs. paper delivery</li>
+                                                <li>Response rates and completion</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="structured-observations">
+                                    <div class="option-icon"><i class="fas fa-tasks"></i></div>
+                                    <h4>Structured Observations</h4>
+                                    <p>Systematic recording of behaviors using predefined categories</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Tools</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Checklists and performance metrics</li>
+                                                <li>Rating scales with operational definitions</li>
+                                                <li>Time sampling and event recording</li>
+                                                <li>Inter-rater reliability important</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="secondary-data">
+                                    <div class="option-icon"><i class="fas fa-database"></i></div>
+                                    <h4>Secondary Data Analysis</h4>
+                                    <p>Analysis of existing datasets</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Sources</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Educational records and assessment data</li>
+                                                <li>Institutional databases</li>
+                                                <li>National surveys or statistics</li>
+                                                <li>Clinical records (with appropriate approvals)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-card checkbox-card" data-value="experimental">
+                                    <div class="option-icon"><i class="fas fa-vial"></i></div>
+                                    <h4>Experimental Measurements</h4>
+                                    <p>Objective measurements in controlled conditions</p>
+                                    <div class="info-dropdown">
+                                        <div class="dropdown-toggle"><i class="fas fa-info-circle"></i> Examples</div>
+                                        <div class="dropdown-content">
+                                            <ul>
+                                                <li>Performance metrics (time, accuracy)</li>
+                                                <li>Standardised test scores</li>
+                                                <li>Physiological measurements</li>
+                                                <li>Simulation-based assessments</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="sampling-strategy">
+                        <h3>Sampling Strategy</h3>
+                        <p>How will you select participants or data sources for your study?</p>
+                        
+                        <!-- Qualitative Sampling -->
+                        <div class="methods-group" id="qualitative-sampling">
+                            <h4>Qualitative Sampling Approaches</h4>
+                            <div class="options-container radio-select">
+                                <div class="option-card radio-card" data-value="purposive">
+                                    <div class="option-icon"><i class="fas fa-bullseye"></i></div>
+                                    <h4>Purposive Sampling</h4>
+                                    <p>Selecting cases that will provide rich information related to your research question</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="theoretical">
+                                    <div class="option-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <h4>Theoretical Sampling</h4>
+                                    <p>Selecting cases based on emerging theory and concepts as analysis progresses</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="maximum-variation">
+                                    <div class="option-icon"><i class="fas fa-random"></i></div>
+                                    <h4>Maximum Variation Sampling</h4>
+                                    <p>Deliberately selecting diverse cases to capture a wide range of perspectives</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="snowball">
+                                    <div class="option-icon"><i class="fas fa-people-arrows"></i></div>
+                                    <h4>Snowball Sampling</h4>
+                                    <p>Having participants refer other potential participants</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="convenience">
+                                    <div class="option-icon"><i class="fas fa-hand-paper"></i></div>
+                                    <h4>Convenience Sampling</h4>
+                                    <p>Selecting easily accessible cases</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantitative Sampling -->
+                        <div class="methods-group" id="quantitative-sampling">
+                            <h4>Quantitative Sampling Approaches</h4>
+                            <div class="options-container radio-select">
+                                <div class="option-card radio-card" data-value="random">
+                                    <div class="option-icon"><i class="fas fa-dice"></i></div>
+                                    <h4>Random Sampling</h4>
+                                    <p>Every member of population has equal chance of selection</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="stratified">
+                                    <div class="option-icon"><i class="fas fa-layer-group"></i></div>
+                                    <h4>Stratified Sampling</h4>
+                                    <p>Random selection within defined groups or strata</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="cluster">
+                                    <div class="option-icon"><i class="fas fa-th-large"></i></div>
+                                    <h4>Cluster Sampling</h4>
+                                    <p>Randomly selecting groups or clusters rather than individuals</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="consecutive">
+                                    <div class="option-icon"><i class="fas fa-stream"></i></div>
+                                    <h4>Consecutive Sampling</h4>
+                                    <p>Including all accessible subjects over a specified time period</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="total">
+                                    <div class="option-icon"><i class="fas fa-globe"></i></div>
+                                    <h4>Total Population</h4>
+                                    <p>Studying the entire available population</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="data-analysis">
+                        <h3>Data Analysis Approach</h3>
+                        <p>Based on your methodology, what analysis approach is most appropriate?</p>
+                        
+                        <!-- Qualitative Analysis -->
+                        <div class="methods-group" id="qualitative-analysis">
+                            <h4>Qualitative Analysis Approaches</h4>
+                            <div class="options-container radio-select">
+                                <div class="option-card radio-card" data-value="thematic">
+                                    <div class="option-icon"><i class="fas fa-th"></i></div>
+                                    <h4>Thematic Analysis</h4>
+                                    <p>Identifying patterns and themes across the dataset</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="constant-comparative">
+                                    <div class="option-icon"><i class="fas fa-code-branch"></i></div>
+                                    <h4>Constant Comparative Analysis</h4>
+                                    <p>Iterative coding and comparison for theory development</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="phenomenological">
+                                    <div class="option-icon"><i class="fas fa-pen-fancy"></i></div>
+                                    <h4>Phenomenological Analysis</h4>
+                                    <p>Understanding lived experiences and their meanings</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="discourse-analysis">
+                                    <div class="option-icon"><i class="fas fa-comments"></i></div>
+                                    <h4>Discourse Analysis</h4>
+                                    <p>Examining language use, context, and power relations</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="narrative-analysis">
+                                    <div class="option-icon"><i class="fas fa-book"></i></div>
+                                    <h4>Narrative Analysis</h4>
+                                    <p>Analysing stories and how they construct meaning</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantitative Analysis -->
+                        <div class="methods-group" id="quantitative-analysis">
+                            <h4>Quantitative Analysis Approaches</h4>
+                            <div class="options-container radio-select">
+                                <div class="option-card radio-card" data-value="descriptive">
+                                    <div class="option-icon"><i class="fas fa-chart-bar"></i></div>
+                                    <h4>Descriptive Statistics</h4>
+                                    <p>Summarising and describing data characteristics</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="inferential">
+                                    <div class="option-icon"><i class="fas fa-flask"></i></div>
+                                    <h4>Inferential Statistics</h4>
+                                    <p>Testing hypotheses and making inferences about populations</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="correlational">
+                                    <div class="option-icon"><i class="fas fa-project-diagram"></i></div>
+                                    <h4>Correlation and Regression</h4>
+                                    <p>Examining relationships between variables</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="factor">
+                                    <div class="option-icon"><i class="fas fa-cube"></i></div>
+                                    <h4>Factor Analysis</h4>
+                                    <p>Identifying underlying dimensions in the data</p>
+                                </div>
+                                <div class="option-card radio-card" data-value="meta-analysis">
+                                    <div class="option-icon"><i class="fas fa-calculator"></i></div>
+                                    <h4>Meta-analysis</h4>
+                                    <p>Statistical combination of results from multiple studies</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="methods-summary" id="methods-summary">
+                        <h3>Methods Summary</h3>
+                        <div class="methods-summary-content">
+                            <div class="summary-item">
+                                <h4>Data Collection:</h4>
+                                <ul id="data-collection-summary"></ul>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Sampling Strategy:</h4>
+                                <p id="sampling-summary">Not yet selected</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Data Analysis:</h4>
+                                <p id="analysis-summary">Not yet selected</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="secondary-button prev-button"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="primary-button next-button">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Practical Planning -->
+            <section id="section-5" class="content-section">
+                <div class="section-content">
+                    <h2>Practical Planning Considerations</h2>
+                    <p>Let's address the practical aspects of implementing your research.</p>
+
+                    <div class="question-container" id="ethics-rigour">
+                        <h3>Ethics and Rigour</h3>
+                        <p>How will you address ethics and rigour in your research?</p>
+                        
+                        <div class="sub-section">
+                            <h4>Ethics Considerations</h4>
+                            <div class="checklist-container">
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="ethics" value="informed-consent">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Informed Consent Procedures</h5>
+                                        <p>Ensuring participants understand the research and agree to participate</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="ethics" value="confidentiality">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Confidentiality and Anonymity Measures</h5>
+                                        <p>Protecting participant identities and sensitive information</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="ethics" value="power-dynamics">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Power Dynamics and Relationships</h5>
+                                        <p>Addressing potential influence of power relationships on participants</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="ethics" value="benefits-harms">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Potential Benefits and Harms</h5>
+                                        <p>Assessing risks and benefits for participants and others</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="ethics" value="review">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Institutional Review Requirements</h5>
+                                        <p>Meeting IRB/REB or other ethical review requirements</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Qualitative Rigour -->
+                        <div class="sub-section" id="qualitative-rigour">
+                            <h4>Rigour Considerations for Qualitative Research</h4>
+                            <div class="checklist-container">
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="qual-rigour" value="reflexivity">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Reflexivity</h5>
+                                        <p>Considering researcher positioning and influence</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="qual-rigour" value="triangulation">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Triangulation</h5>
+                                        <p>Using multiple data sources or methods</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="qual-rigour" value="member-checking">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Member Checking</h5>
+                                        <p>Verifying findings with participants</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="qual-rigour" value="audit-trail">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Audit Trail</h5>
+                                        <p>Documenting research decisions and process</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="qual-rigour" value="thick-description">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Thick Description</h5>
+                                        <p>Providing detailed context and meaning</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantitative Rigour -->
+                        <div class="sub-section" id="quantitative-rigour">
+                            <h4>Rigour Considerations for Quantitative Research</h4>
+                            <div class="checklist-container">
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="quant-rigour" value="internal-validity">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Internal Validity</h5>
+                                        <p>Ensuring accurate causal inferences</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="quant-rigour" value="external-validity">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>External Validity</h5>
+                                        <p>Ensuring generalisability to other settings</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="quant-rigour" value="reliability">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Reliability</h5>
+                                        <p>Ensuring consistency and reproducibility</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="quant-rigour" value="objectivity">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Objectivity</h5>
+                                        <p>Minimising bias in measurement and analysis</p>
+                                    </div>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" name="quant-rigour" value="power-analysis">
+                                    <span class="checkmark"></span>
+                                    <div class="checklist-content">
+                                        <h5>Statistical Power</h5>
+                                        <p>Ensuring adequate sample size</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" id="resources-timeline">
+                        <h3>Resource and Timeline Planning</h3>
+                        <p>What resources and timeline will your research require?</p>
+                        
+                        <div class="sub-section">
+                            <h4>Resources Needed</h4>
+                            <div class="resource-planner">
+                                <div class="resource-category">
+                                    <h5>Personnel</h5>
+                                    <textarea placeholder="List team members and their roles (e.g., research assistants, statisticians, transcriptionists)"></textarea>
+                                </div>
+                                <div class="resource-category">
+                                    <h5>Equipment and Software</h5>
+                                    <textarea placeholder="List technology needs (e.g., recording devices, analysis software, survey platforms)"></textarea>
+                                </div>
+                                <div class="resource-category">
+                                    <h5>Participant Recruitment</h5>
+                                    <textarea placeholder="Outline recruitment strategies and any compensation"></textarea>
+                                </div>
+                                <div class="resource-category">
+                                    <h5>Data Management</h5>
+                                    <textarea placeholder="Describe storage, security, and data management plans"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sub-section">
+                            <h4>Timeline Planning</h4>
+                            <div class="timeline-planner">
+                                <div class="timeline-phase">
+                                    <div class="phase-header">
+                                        <h5>Ethics Approval</h5>
+                                        <div class="phase-duration">
+                                            <label for="ethics-duration">Estimated duration:</label>
+                                            <select id="ethics-duration">
+                                                <option value="1">1 month</option>
+                                                <option value="2" selected>2 months</option>
+                                                <option value="3">3 months</option>
+                                                <option value="4">4 months</option>
+                                                <option value="5">5+ months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <textarea placeholder="Notes on ethics application preparation and review"></textarea>
+                                </div>
+                                <div class="timeline-phase">
+                                    <div class="phase-header">
+                                        <h5>Participant Recruitment</h5>
+                                        <div class="phase-duration">
+                                            <label for="recruitment-duration">Estimated duration:</label>
+                                            <select id="recruitment-duration">
+                                                <option value="1">1 month</option>
+                                                <option value="2" selected>2 months</option>
+                                                <option value="3">3 months</option>
+                                                <option value="4">4 months</option>
+                                                <option value="5">5+ months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <textarea placeholder="Notes on recruitment strategies and timeline"></textarea>
+                                </div>
+                                <div class="timeline-phase">
+                                    <div class="phase-header">
+                                        <h5>Data Collection</h5>
+                                        <div class="phase-duration">
+                                            <label for="collection-duration">Estimated duration:</label>
+                                            <select id="collection-duration">
+                                                <option value="1">1 month</option>
+                                                <option value="2">2 months</option>
+                                                <option value="3" selected>3 months</option>
+                                                <option value="4">4 months</option>
+                                                <option value="5">5+ months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <textarea placeholder="Notes on data collection process and schedule"></textarea>
+                                </div>
+                                <div class="timeline-phase">
+                                    <div class="phase-header">
+                                        <h5>Data Analysis</h5>
+                                        <div class="phase-duration">
+                                            <label for="analysis-duration">Estimated duration:</label>
+                                            <select id="analysis-duration">
+                                                <option value="1">1 month</option>
+                                                <option value="2">2 months</option>
+                                                <option value="3" selected>3 months</option>
+                                                <option value="4">4 months</option>
+                                                <option value="5">5+ months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <textarea placeholder="Notes on analysis approach and timeline"></textarea>
+                                </div>
+                                <div class="timeline-phase">
+                                    <div class="phase-header">
+                                        <h5>Writing and Dissemination</h5>
+                                        <div class="phase-duration">
+                                            <label for="writing-duration">Estimated duration:</label>
+                                            <select id="writing-duration">
+                                                <option value="1">1 month</option>
+                                                <option value="2">2 months</option>
+                                                <option value="3" selected>3 months</option>
+                                                <option value="4">4 months</option>
+                                                <option value="5">5+ months</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <textarea placeholder="Notes on writing plans and dissemination targets"></textarea>
+                                </div>
+                            </div>
+                            <div class="total-duration">
+                                <h5>Estimated Total Project Duration: <span id="total-duration">13 months</span></h5>
+                                <p><em>Note: Phases may overlap. This is an initial estimate and should be refined as your research plan develops.</em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="secondary-button prev-button"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="primary-button next-button">Complete Plan <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Final Research Plan -->
+            <section id="section-6" class="content-section">
+                <div class="section-content">
+                    <h2>Your Research Plan</h2>
+                    <p>Based on your selections, here is your comprehensive research plan.</p>
+
+                    <div class="info-box">
+                        <h3><i class="fas fa-info-circle"></i> Next Steps</h3>
+                        <p>This plan provides a foundation for your research project. We recommend discussing it with your supervisor or colleagues for further refinement. You can download this plan as a PDF for your records and future reference.</p>
+                    </div>
+
+                    <div id="research-plan" class="research-plan">
+                        <div class="plan-header">
+                            <div class="plan-title">
+                                <h3>Medical Education Research Plan</h3>
+                                <p id="plan-date">Generated on April 29, 2025</p>
+                            </div>
+                            <div class="plan-actions">
+                                <button id="download-pdf" class="action-button"><i class="fas fa-file-pdf"></i> Download PDF</button>
+                                <button id="print-plan" class="action-button"><i class="fas fa-print"></i> Print</button>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>1. Research Question</h3>
+                            <p id="final-question"><em>Your research question will appear here</em></p>
+                            <div class="plan-details">
+                                <div class="detail-item">
+                                    <h4>Primary Interest:</h4>
+                                    <p id="final-interest"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Research Aim:</h4>
+                                    <p id="final-aim"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Context:</h4>
+                                    <p id="final-context"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Knowledge Gap:</h4>
+                                    <p id="final-gap"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>2. Philosophical Foundations</h3>
+                            <div class="plan-details">
+                                <div class="detail-item">
+                                    <h4>Research Paradigm:</h4>
+                                    <p id="final-paradigm"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Ontological Position:</h4>
+                                    <p id="final-ontology"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Epistemological Stance:</h4>
+                                    <p id="final-epistemology"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>3. Methodology</h3>
+                            <div class="plan-details">
+                                <div class="detail-item">
+                                    <h4>Selected Methodology:</h4>
+                                    <p id="final-methodology"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Key Characteristics:</h4>
+                                    <p id="final-methodology-description"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Example Paper:</h4>
+                                    <p id="final-methodology-example"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>4. Methods</h3>
+                            <div class="plan-details">
+                                <div class="detail-item">
+                                    <h4>Data Collection Methods:</h4>
+                                    <ul id="final-data-collection"></ul>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Sampling Strategy:</h4>
+                                    <p id="final-sampling"></p>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Data Analysis Approach:</h4>
+                                    <p id="final-analysis"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>5. Practical Considerations</h3>
+                            <div class="plan-details">
+                                <div class="detail-item">
+                                    <h4>Ethics Considerations:</h4>
+                                    <ul id="final-ethics"></ul>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Rigour Considerations:</h4>
+                                    <ul id="final-rigour"></ul>
+                                </div>
+                                <div class="detail-item">
+                                    <h4>Estimated Timeline:</h4>
+                                    <p id="final-timeline"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>6. Research Design Visualisation</h3>
+                            <div class="visual-flowchart" id="visual-flowchart">
+                                <!-- SVG Flowchart will be generated dynamically -->
+                            </div>
+                        </div>
+                        
+                        <div class="plan-section">
+                            <h3>7. Recommended Readings</h3>
+                            <div id="recommended-readings">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restart-actions">
+                        <button id="restart-button" class="secondary-button"><i class="fas fa-redo"></i> Start New Research Plan</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 Medical Education Research Planner | <a href="#" id="about-link">About</a></p>
+        </footer>
+
+        <!-- Modal for About and Contact -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modal-body">
+                    <!-- Modal content will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="content-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MedEd Tools</h3>
+                <p>Supporting medical education through practical, evidence-based resources.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#tools">Tools</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="research.html">Research Planner</a></li>
+                    <li><a href="assessment-designer.html">Assessment Designer</a></li>
+                    <li><a href="#">Curriculum Mapper (Coming Soon)</a></li>
+                    <li><a href="#">Learning Theory Explorer (Coming Soon)</a></li>
+                </ul>
+            </div>
+            <div class="footer-section" id="contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> mededtools@example.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MedEd Tools. Created by medical educators for medical educators.</p>
+        </div>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>

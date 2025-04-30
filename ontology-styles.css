@@ -1,0 +1,331 @@
+/* Ontology Quiz Specific Styles */
+
+/* Info Cards on Intro Screen */
+.info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-card {
+    flex: 1 1 250px;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+    color: #2a70b8;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.info-card h3 i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Option Cards */
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.option-card {
+    background-color: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.option-card:hover {
+    border-color: #2a70b8;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(42, 112, 184, 0.1);
+}
+
+.option-card.selected {
+    border-color: #2a70b8;
+    background-color: rgba(42, 112, 184, 0.05);
+}
+
+.option-card .option-marker {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #c4c4c4;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.option-card.selected .option-marker {
+    border-color: #2a70b8;
+    background-color: #2a70b8;
+}
+
+.option-card.selected .option-marker::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.option-card .option-text {
+    flex-grow: 1;
+}
+
+.option-card .option-letter {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Explanation Box */
+.explanation-box {
+    background-color: #f9f9f9;
+    border-left: 4px solid #4FA673;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.explanation-box h3 {
+    color: #4FA673;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.explanation-box h3 i {
+    margin-right: 10px;
+}
+
+/* Results Screen */
+.result-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 5px solid #2a70b8;
+}
+
+.result-card h3 {
+    color: #2a70b8;
+    margin-top: 0;
+}
+
+/* Philosophical Spectrum */
+.result-spectrum {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.spectrum-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 1rem;
+    position: relative;
+}
+
+.spectrum-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    text-align: center;
+    position: relative;
+}
+
+.point-marker {
+    width: 16px;
+    height: 16px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.spectrum-point span {
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.spectrum-line {
+    height: 6px;
+    background: linear-gradient(to right, #2a70b8, #4FA673, #E09456, #D64045);
+    border-radius: 3px;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.user-position-marker {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 3px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.5s ease;
+}
+
+/* Accordion for Philosophical Traditions */
+.accordion {
+    margin: 1.5rem 0;
+}
+
+.accordion-item {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 1rem 1.5rem;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-header h4 {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header h4 i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header h4 i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 1rem 1.5rem;
+    max-height: 1000px; /* Large enough to contain content */
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.resource-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card h3 {
+    color: #2a70b8;
+    margin-top: 0;
+}
+
+.resource-link {
+    margin-top: auto;
+    padding-top: 1rem;
+    text-decoration: none;
+    color: #4FA673;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.resource-link i {
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+
+.resource-link:hover {
+    text-decoration: underline;
+}
+
+/* Progress Bar Specific to Quiz */
+#progress-container {
+    margin: 2rem 0 1rem;
+}
+
+#progress-fill {
+    transition: width 0.5s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.progress-step {
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0.6;
+    position: relative;
+    text-align: center;
+    flex: 1;
+}
+
+.progress-step.active {
+    color: #ffffff !important;
+}
+
+.progress-step.active::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #2a70b8;
+    border-radius: 50%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .info-cards {
+        flex-direction: column;
+    }
+    
+    .spectrum-point span {
+        font-size: 0.75rem;
+    }
+}
